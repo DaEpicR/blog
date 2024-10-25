@@ -1,12 +1,10 @@
 ---
 title: 'What is SMB'
 description: 'What is SMB and how to exploit it'
-pubDate: 'Oct 22 2024'
-heroImage: 
-  src: '/blog-placeholder-1.jpg'
-  alt: ''
-order: 1
-tags: ["guide"]
+publishedDate: 2024-06-02
+tags:
+  - Networking
+  - Guide
 ---
 
 ## What is** SMB** ?
@@ -28,19 +26,13 @@ The **SMB** protocol is known as a response-request protocol, meaning that it tr
 
 First we start with enumerating open ports :
 
-
-
 ![](assets/2.png)
 
 Then We use smbclient to try to connect an anon user which is the most common misconfuguration :
 
-
-
 ![](assets/5.png)
 
 we find interesting stuff :
-
-
 
 ![](assets/3.png)
 
@@ -48,13 +40,9 @@ we find interesting stuff :
 
 we connect to profiles wich seels unusual and we have permission to do so:
 
-
-
 ![](assets/4.png)
 
 Find multiple files, we got the juicy `.ssh` ready to be explored
-
-
 
 ![](assets/9.png)
 
@@ -64,4 +52,4 @@ using `id_rsa` with the right premissions we got access to the machine :
 
 ![](assets/6.png)
 
-And simply this is **SMB** in a *cybersecurity* perspective :)
+And simply this is **SMB** in a _cybersecurity_ perspective :)

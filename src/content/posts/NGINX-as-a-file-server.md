@@ -1,14 +1,14 @@
 ---
 title: 'How to set up NGINX as a file server'
 description: 'simple implementaion for nginx to host files'
-pubDate: 'Jun 20 2024'
-heroImage:
-  src: ''
-  alt: ''
-tags: ["Guide", "Docker", "Nginx"]
-updatedDate: 'Jun 20 2024'
-series: "Guide"
+publishedDate: 2024-04-25
+tags:
+  - Docker
+  - Guide
+  - Nginx
 ---
+
+![](/public/blog-placeholder-4.jpg)
 
 # NGINX as a file server
 
@@ -53,6 +53,3 @@ docker restart {container name}
 ```shellscript
 docker port {container name}
 ```
-
-
-

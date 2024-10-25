@@ -1,18 +1,17 @@
 ---
 title: 'How to auto mount a drive in Linux'
 description: 'Here is a simple way to mount any drive with any filesystem in Linux , using `fstab`'
-pubDate: 'May 31 2024'
-heroImage: 
-  src: ''
-  alt: ''
-order: 1
-tags: ["Guide", "Linux"]
+publishedDate: 2024-07-21
+tags:
+  - Linux
+  - Guide
 ---
+
 ![](/public/blog-placeholder-2.jpg)
 
 To mount any drive with any File system (NTFS, BTRFS, etc...) using `fstab` (File System Table), you'll need to add an entry for the drive in the `/etc/fstab` file. Here's how you can do it:
 
-1. Find the **UUID** (Universally Unique Identifier) of your in ex: *NTFS* drive. You can do this by running the following command in the terminal:
+1. Find the **UUID** (Universally Unique Identifier) of your in ex: _NTFS_ drive. You can do this by running the following command in the terminal:
 
 ```bash
 sudo blkid
