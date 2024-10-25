@@ -20,12 +20,12 @@
   }
 
   .scheme-aurora {
-    --accent: 0, 183, 86;
+    --accent: 0, 0, 0;
     --accent-bg: 242, 244, 248;
 
     &[data-mode='dark'] {
       --accent: 0, 253, 119;
-      --accent-bg: 35, 39, 48;
+      --accent-bg: 0, 0, 0;
     }
   }
 }
