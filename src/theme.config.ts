@@ -2,7 +2,7 @@ import { defineThemeConfig } from './types'
 
 export default defineThemeConfig({
   site: 'https://daepicr.github.io/blog',
-  title: 'Nordlys',
+  title: 'Straight',
   description: 'A Blog for things that matter.',
   author: 'Rafik Saifi',
   navbarItems: [
