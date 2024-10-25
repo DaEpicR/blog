@@ -1,7 +1,7 @@
 ---
 title: 'What is SMB'
 description: 'What is SMB and how to exploit it'
-publishedDate: 2024-06-02
+publishedDate: 2024-10-02
 tags:
   - Networking
   - Guide
