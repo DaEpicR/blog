@@ -1,7 +1,7 @@
 ---
 title: BubbleSort Algorithm Explained
 description: Explaining BubbleSort Algorithm in a simple way
-publishedDate: 2024-7-21
+publishedDate: 2024-07-21
 tags:
   - programming
   - Guide
