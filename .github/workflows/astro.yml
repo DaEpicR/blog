@@ -19,13 +19,13 @@ jobs:
           node-version: '16'  # Adjust based on your project's requirements
 
       - name: Install dependencies
-        run: npm install  # Change to `pnpm install` if using pnpm
+        run: pnpm install  # Change to `pnpm install` if using pnpm
 
       - name: Build project
-        run: npm run build  # Ensure this command outputs to the 'dist' folder
+        run: pnpm run build  # Ensure this command outputs to the 'dist' folder
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./blog/public
