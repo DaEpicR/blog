@@ -3,8 +3,8 @@ import { defineThemeConfig } from './types'
 export default defineThemeConfig({
   site: 'https://daepicr.github.io/blog',
   title: 'Nordlys',
-  description: 'A minimal Astro blog theme',
-  author: 'FjellOverflow',
+  description: 'A Blog for things that matter.',
+  author: 'Rafik Saifi',
   navbarItems: [
     { label: 'Blog', href: '/posts' },
     { label: 'Projects', href: '/projects' },
@@ -23,7 +23,7 @@ export default defineThemeConfig({
   footerItems: [
     {
       icon: 'tabler--brand-github',
-      href: 'https://github.com/FjellOverflow/nordlys',
+      href: 'https://github.com/DaEpicR',
       label: 'Github'
     },
     {

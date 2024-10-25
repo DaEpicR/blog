@@ -1,12 +1,10 @@
 ---
-title: 'Bubble Sort Algorithm Explained'
-description: 'Explaining BubbleSort Algorithm in a simple way'
-pubDate: 'Jul 21 2024'
-heroImage: 
-  src: '/blog-placeholder-4.jpg'
-  alt: ''
-tags: ["Learning"]
-series: "Learning"
+title: BubbleSort Algorithm Explained
+description: Explaining BubbleSort Algorithm in a simple way
+publishedDate: 2024-7-21
+tags:
+  - programming
+  - Guide
 ---
 
 ## Bubble Sort Algorithm Explained
@@ -55,6 +53,7 @@ def bubble_sort_multiple_passes(data):
 #### Single Pass Visualization
 
 - **Before Pass**:
+
   ```python
   [5, 3, 8, 2, 7]
   ```
@@ -67,6 +66,7 @@ def bubble_sort_multiple_passes(data):
 #### Multiple Passes Visualization
 
 - **Pass 1**:
+
   ```python
   [3, 5, 8, 2, 7]   (after pass 1)
   [3, 5, 2, 7, 8]   (after pass 2)
