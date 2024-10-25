@@ -9,7 +9,7 @@ tags:
 
 ## What is **SMB** ?
 
-**SMB **- **S**erver **M**essage **B**lock Protocol - is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network
+**SMB**- **S**erver **M**essage **B**lock Protocol - is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network
 
 The **SMB** protocol is known as a response-request protocol, meaning that it transmits multiple messages between the client and server to establish a connection. Clients connect to servers using **TCP**/**IP** (actually NetBIOS over TCP/IP as specified in RFC1001 and RFC1002), NetBEUI or IPX/SPX.
 
