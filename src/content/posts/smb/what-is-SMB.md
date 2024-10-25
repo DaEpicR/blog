@@ -7,7 +7,7 @@ tags:
   - Guide
 ---
 
-## What is** SMB** ?
+## What is **SMB** ?
 
 **SMB **- **S**erver **M**essage **B**lock Protocol - is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network
 
