@@ -1,7 +1,7 @@
 import { defineThemeConfig } from './types'
 
 export default defineThemeConfig({
-  site: 'https://nordlys.fjelloverflow.dev',
+  site: 'https://daepicr.github.io/blog',
   title: 'Nordlys',
   description: 'A minimal Astro blog theme',
   author: 'FjellOverflow',
