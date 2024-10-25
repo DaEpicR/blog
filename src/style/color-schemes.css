@@ -1,10 +1,10 @@
 @layer base {
   .scheme-mono {
-    --accent: 0, 0, 0;
+    --accent: 255, 105, 180;
     --accent-bg: 255, 255, 255;
 
     &[data-mode='dark'] {
-      --accent: 255, 255, 255;
+      --accent: 221, 160, 221;
       --accent-bg: 0, 0, 0;
     }
   }
@@ -20,12 +20,12 @@
   }
 
   .scheme-aurora {
-    --accent: 0, 0, 0;
+    --accent: 0, 183, 86;
     --accent-bg: 242, 244, 248;
 
     &[data-mode='dark'] {
       --accent: 0, 253, 119;
-      --accent-bg: 0, 0, 0;
+      --accent-bg: 35, 39, 48;
     }
   }
 }
