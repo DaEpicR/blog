@@ -1,0 +1,109 @@
+---
+import NavItem from '@/components/layout/NavItem.astro'
+import TagsBar from '@/components/TagsBar.astro'
+import ToC from '@/components/ToC.astro'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
+import HeadingAnchorsPlugin from '@/plugins/HeadingAnchorsPlugin.astro'
+import { toDateString } from '@/util'
+import { adjacentPosts } from '@/util/posts'
+import { resolveTags } from '@/util/tags'
+import type { CollectionEntry } from 'astro:content'
+export interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { post } = Astro.props
+
+const { previous, next } = await adjacentPosts(post)
+
+const {
+  Content,
+  remarkPluginFrontmatter: { readingTime },
+  headings
+} = await post.render()
+
+const frontmatter: PageLayoutProps['frontmatter'] = {
+  ...post.data,
+  openGraphImage: post.data.openGraphImage || `/posts/${post.slug}.png`,
+  activeHeaderLink: 'Blog',
+  scrollProgress: true
+}
+
+const publishedStr = toDateString(post.data.publishedDate)
+---
+
+<PageLayout {frontmatter}>
+  <div slot="top" class="mt-4">
+    <NavItem
+      item={{
+        label: 'Back to all posts',
+        href: '/posts',
+        icon: 'tabler--arrow-left'
+      }}
+    />
+  </div>
+
+  <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
+  <TagsBar tags={resolveTags(post.data.tags)} />
+
+  <div class="mt-4">
+    <span class="opacity-75">Published on <time>{publishedStr}</time> by</span>
+    <a class="clickable" href={`/authors/${post.data.author}`}
+      >{post.data.author}</a
+    > · <span class="whitespace-nowrap opacity-75">{readingTime} </span>
+  </div>
+
+  {
+    !!post.data.showToC && (
+      <div
+        slot="aside"
+        class="mt-24 hidden border-r border-accent pr-4 opacity-50 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
+      >
+        <ToC {headings} open />
+      </div>
+    )
+  }{
+    !!post.data.showToC && (
+      <div class="mt-8 w-fit rounded border 2xl:hidden">
+        <ToC {headings} />
+      </div>
+    )
+  }
+
+  <article>
+    <Content />
+  </article>
+
+  <div slot="bottom" class="my-4 grid grid-cols-3">
+    <div class="flex flex-col items-start">
+      {
+        !!next && (
+          <a href={`/posts/${next.slug}`} class="clickable">
+            <div class="flex items-center justify-start gap-1">
+              <span class="iconify text-xl tabler--arrow-left" />
+              <span>Next post</span>
+            </div>
+            <span class="mt-2 text-lg sm:text-xl">{next.data.title}</span>
+          </a>
+        )
+      }
+    </div>
+    <div class="w-1/4"></div>
+    <div class="flex flex-col items-end">
+      {
+        !!previous && (
+          <a href={`/posts/${previous.slug}`} class="clickable">
+            <div class="flex items-center justify-end gap-1">
+              <span>Previous post</span>
+              <span class="iconify text-xl tabler--arrow-right" />
+            </div>
+            <span class="mt-2 text-lg sm:text-xl">{previous.data.title}</span>
+          </a>
+        )
+      }
+    </div>
+  </div>
+  <HeadingAnchorsPlugin />
+</PageLayout>

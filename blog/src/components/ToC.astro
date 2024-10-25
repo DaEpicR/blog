@@ -1,0 +1,79 @@
+---
+import Prose from '@/components/layout/Prose.astro'
+
+interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
+
+type ProcessedHeading = Heading & { children: ProcessedHeading[] }
+
+export interface Props {
+  headings: Heading[]
+  open?: boolean
+}
+
+const { headings: _headings, open = false } = Astro.props
+
+const headings = [..._headings]
+
+function appendHeading(headings: ProcessedHeading[], newHeading: Heading) {
+  const previousHeading = headings[headings.length - 1]
+
+  if (!previousHeading || previousHeading.depth === newHeading.depth)
+    headings.push({ ...newHeading, children: [] })
+  else appendHeading(previousHeading.children, newHeading)
+}
+
+const processedHeadings: ProcessedHeading[] = []
+
+while (headings.length) {
+  const nextItem = headings.shift()
+  if (nextItem) appendHeading(processedHeadings, nextItem)
+}
+
+function resolveEl(heading: ProcessedHeading) {
+  let li = `<a href="#${heading.slug}">${heading.text}</a>`
+
+  if (heading.children.length) {
+    li += `<ul>${heading.children
+      .map((child) => `${resolveEl(child)}`)
+      .join('')}</ul>`
+  }
+
+  return `<li>${li}</li>`
+}
+---
+
+<div class="p-4" id="toc">
+  <Prose>
+    <h2 class="no-anchor mb-2">Table of Contents</h2>
+
+    <details {open}>
+      <summary>Show more</summary>
+      <ul>
+        {
+          processedHeadings.map((heading) => (
+            <Fragment set:html={resolveEl(heading)} />
+          ))
+        }
+      </ul>
+    </details>
+  </Prose>
+</div>
+<style>
+  #toc {
+    ul {
+      @apply my-1 list-none;
+    }
+
+    li {
+      @apply my-1;
+    }
+
+    a {
+      @apply no-underline hover:underline;
+    }
+  }
+</style>
