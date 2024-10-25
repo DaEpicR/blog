@@ -1,11 +1,9 @@
 ---
 layout: '@/layouts/LandingLayout.astro'
-title: Nordlys
+title: Saifi
 background: true
-logo: true
+logo: false
 ---
 
-A minimal Astro blog theme.\
-Ideal for a personal [blog](/posts) and showcasing a [projects](/projects) portfolio.\
-Fully customizable, dark mode & built-in color schemes.\
-Read more in the [about](/about) section.
+A [blog](/posts) for things that matter.
+Want know more about me ? check [about](/about) section.
